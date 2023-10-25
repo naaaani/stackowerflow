@@ -80,8 +80,16 @@ public class QuestionService {
     }
 
     public boolean deleteQuestionById(int id) {
-        // TODO
-        return false;
+        String sql = "DELETE FROM questions WHERE question_id=" + id;
+        Connection connection = connector.getConnection();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            return preparedStatement.execute();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     public int addNewQuestion(NewQuestionDTO question) {
