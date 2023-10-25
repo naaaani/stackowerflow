@@ -14,14 +14,6 @@
 - Feature to mark the accepted answer for the user's own question
 - Write tests for the service layer
 
-#### Extra:
-- OPTIONAL: Admin user type can delete any question or answer
-- OPTIONAL: Filter by question titles  (location: main page)
-- OPTIONAL: Feature to tag questions
-- OPTIONAL: Feature to edit questions (limited to the ones created by the user)
-- OPTIONAL: Feature to edit answers (limited to the ones created by the user)
-- OPTIONAL: Feature to calculate reputation of the user and display them differently if they are very active on the site (display reputation on user list page too)
-
 ## General requirements: 
 - Create an SQL database to store your data
 - Stick to Model View Controller layers (Frontend doesn't do calculations, only displays the data, SQL handles the data manipulation)
