@@ -4,24 +4,24 @@ import com.codecool.stackoverflowtw.dao.QuestionsDAO;
 import com.codecool.stackoverflowtw.controller.dto.NewQuestionDTO;
 import com.codecool.stackoverflowtw.controller.dto.QuestionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class QuestionService {
-    private final String url = "jdbc:postgresql://localhost/stack_overflow";
-    private final String user = "nandi";
-    private final String password = "kakamaka";
-
     private QuestionsDAO questionsDAO;
+    private final PSQLConnector connector;
 
-    @Autowired
-    public QuestionService(QuestionsDAO questionsDAO) {
+    public QuestionService(QuestionsDAO questionsDAO, PSQLConnector connector) {
         this.questionsDAO = questionsDAO;
+        this.connector = connector;
     }
 
     public List<QuestionDTO> getAllQuestions() {
@@ -30,25 +30,33 @@ public class QuestionService {
                 "FROM questions q " +
                 "INNER JOIN answers a ON (a.question_id=q.question_id) " +
                 "GROUP BY q.question_id, q.title, q.created_at, q.number_of_likes;";
-        Connection connection = getConnection();
+        Connection connection = connector.getConnection();
         List<QuestionDTO> questionDTOS = new ArrayList<>();
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
+
             while (resultSet.next()) {
-                //id, title, answer_count, created_at
+                //id, title, answer_count, created_at, likes
+                int id = resultSet.getInt("question_id");
+                String title = resultSet.getString("title");
+                LocalDate createdAt = resultSet.getDate("created_at").toLocalDate();
+                int answerCount = resultSet.getInt("answer_count");
+                int numberOfLikes = resultSet.getInt("number_of_likes");
+
+                questionDTOS.add(new QuestionDTO(id, title, createdAt, answerCount, numberOfLikes));
             }
         } catch (SQLException e) {
             System.out.println("Error");
         }
-
+        return questionDTOS;
     }
 
     public QuestionDTO getQuestionById(int id) {
         // TODO
         questionsDAO.sayHi();
-        return new QuestionDTO(id, "example title", "example desc", LocalDateTime.now());
+        return null;
     }
 
     public boolean deleteQuestionById(int id) {
@@ -62,13 +70,4 @@ public class QuestionService {
         return createdId;
     }
 
-    public Connection getConnection() {
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(url, user, password);
-        } catch (SQLException e) {
-            System.out.println();
-        }
-        return connection;
-    }
 }
