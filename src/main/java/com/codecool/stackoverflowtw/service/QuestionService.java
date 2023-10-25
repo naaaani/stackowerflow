@@ -26,10 +26,10 @@ public class QuestionService {
 
     public List<QuestionDTO> getAllQuestions() {
         String sql = "SELECT q.question_id, q.title, " +
-                "q.created_at, q.number_of_likes, COUNT(a.answer_id) AS answer_count " +
+                "q.created_at, q.number_of_likes, q.body, COUNT(a.answer_id) AS answer_count " +
                 "FROM questions q " +
                 "INNER JOIN answers a ON (a.question_id=q.question_id) " +
-                "GROUP BY q.question_id, q.title, q.created_at, q.number_of_likes;";
+                "GROUP BY q.question_id, q.title, q.created_at, q.number_of_likes, q.body;";
         Connection connection = connector.getConnection();
         List<QuestionDTO> questionDTOS = new ArrayList<>();
 
@@ -41,11 +41,12 @@ public class QuestionService {
                 //id, title, answer_count, created_at, likes
                 int id = resultSet.getInt("question_id");
                 String title = resultSet.getString("title");
+                String body = resultSet.getString("body");
                 LocalDate createdAt = resultSet.getDate("created_at").toLocalDate();
                 int answerCount = resultSet.getInt("answer_count");
                 int numberOfLikes = resultSet.getInt("number_of_likes");
 
-                questionDTOS.add(new QuestionDTO(id, title, createdAt, answerCount, numberOfLikes));
+                questionDTOS.add(new QuestionDTO(id, title, body, createdAt, answerCount, numberOfLikes));
             }
         } catch (SQLException e) {
             System.out.println("Error");
@@ -54,7 +55,26 @@ public class QuestionService {
     }
 
     public QuestionDTO getQuestionById(int id) {
-        // TODO
+        String sql = "SELECT * FROM questions WHERE question_id=" + id;
+        Connection connection = connector.getConnection();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                //id, title, answer_count, created_at, likes
+                int questionId = resultSet.getInt("question_id");
+                String title = resultSet.getString("title");
+                String body = resultSet.getString("body");
+                LocalDate createdAt = resultSet.getDate("created_at").toLocalDate();
+                int numberOfLikes = resultSet.getInt("number_of_likes");
+
+                return new QuestionDTO(questionId, title, body, createdAt, numberOfLikes, 0);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         questionsDAO.sayHi();
         return null;
     }
