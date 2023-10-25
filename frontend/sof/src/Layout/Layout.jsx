@@ -7,7 +7,7 @@ const Layout = () => (
     <nav>
       <ul>
         <li className="grow">
-          <Link to="/">Employees</Link>
+          <Link to="/">Questions</Link>
         </li>
         <li>
           <Link to="/create-question">
