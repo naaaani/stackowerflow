@@ -29,11 +29,11 @@ const QuestionForm = ({ onSave, disabled, Question, onCancel }) => {
       </div>
 
       <div>
-        <label htmlFor="details">Details:</label>
+        <label htmlFor="body">Details:</label>
         <input
-          defaultValue={Question ? Question.details : null}
-          name="details"
-          id="details"
+          defaultValue={Question ? Question.body : null}
+          name="body"
+          id="body"
         />
       </div>
 

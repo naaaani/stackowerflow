@@ -4,7 +4,7 @@ import QuestionForm from "./QuestionForm";
 
 
 const createQuestion = async question => {
-  const res = await fetch("/api/questions", {
+  const res = await fetch("/api/questions/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

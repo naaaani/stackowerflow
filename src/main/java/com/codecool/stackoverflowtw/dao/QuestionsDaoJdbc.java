@@ -22,8 +22,9 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
         String sql = "SELECT q.question_id, q.title, " +
                 "q.created_at, q.number_of_likes, q.body, COUNT(a.question_id) AS answer_count " +
                 "FROM questions q " +
-                "INNER JOIN answers a ON (a.question_id=q.question_id) " +
-                "GROUP BY q.question_id, q.title, q.created_at, q.number_of_likes, q.body;";
+                "LEFT JOIN answers a ON (a.question_id=q.question_id) " +
+                "GROUP BY q.question_id, q.title, q.created_at, q.number_of_likes, q.body " +
+                "ORDER BY q.created_at;";
         Connection connection = connector.getConnection();
         List<QuestionDTO> questionDTOS = new ArrayList<>();
 
