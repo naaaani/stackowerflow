@@ -104,5 +104,18 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
             return 0;
         }
     }
+    @Override
+    public boolean likeQuestion(int id) {
+        String sql = "UPDATE questions SET number_of_likes = number_of_likes + 1 WHERE question_id=" + id;
+        try{
+            Connection connection = connector.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 
 }

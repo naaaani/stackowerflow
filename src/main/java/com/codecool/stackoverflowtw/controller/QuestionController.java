@@ -37,4 +37,9 @@ public class QuestionController {
     public boolean deleteQuestionById(@PathVariable int id) {
         return questionService.deleteQuestionById(id);
     }
+
+    @PutMapping("/{id}")
+    public boolean likeQuestion(@PathVariable int id){
+        return questionService.likeQuestion(id);
+    }
 }

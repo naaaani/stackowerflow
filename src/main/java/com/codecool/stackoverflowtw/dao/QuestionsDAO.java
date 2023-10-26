@@ -12,5 +12,6 @@ public interface QuestionsDAO {
 
     boolean deleteQuestionById(int id);
     int addNewQuestion(NewQuestionDTO question);
+    boolean likeQuestion(int id);
 }
 

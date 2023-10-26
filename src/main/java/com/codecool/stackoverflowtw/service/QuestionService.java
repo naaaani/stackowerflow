@@ -39,5 +39,8 @@ public class QuestionService {
 
        return questionsDAO.addNewQuestion(question);
     }
+    public boolean likeQuestion(int id){
+        return questionsDAO.likeQuestion(id);
+    }
 
 }
