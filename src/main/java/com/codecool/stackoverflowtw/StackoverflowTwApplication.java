@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Import;
 
 
 @SpringBootApplication
-//@Import(CorsConfig.class)
 public class StackoverflowTwApplication {
 
     public static void main(String[] args) {
