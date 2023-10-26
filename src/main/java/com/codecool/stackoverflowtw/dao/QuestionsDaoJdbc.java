@@ -20,7 +20,7 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
     @Override
     public List<QuestionDTO> getAllQuestions() {
         String sql = "SELECT q.question_id, q.title, " +
-                "q.created_at, q.number_of_likes, q.body, COUNT(a.answer_id) AS answer_count " +
+                "q.created_at, q.number_of_likes, q.body, COUNT(a.question_id) AS answer_count " +
                 "FROM questions q " +
                 "INNER JOIN answers a ON (a.question_id=q.question_id) " +
                 "GROUP BY q.question_id, q.title, q.created_at, q.number_of_likes, q.body;";
@@ -39,7 +39,7 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
                 int answerCount = resultSet.getInt("answer_count");
                 int numberOfLikes = resultSet.getInt("number_of_likes");
 
-                questionDTOS.add(new QuestionDTO(id, title, body, createdAt, answerCount, numberOfLikes));
+                questionDTOS.add(new QuestionDTO(id, title, body, createdAt, numberOfLikes, answerCount));
             }
         } catch (SQLException e) {
             System.out.println("Error");
