@@ -32,7 +32,6 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                //id, title, answer_count, created_at, likes
                 int id = resultSet.getInt("question_id");
                 String title = resultSet.getString("title");
                 String body = resultSet.getString("body");
