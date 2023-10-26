@@ -16,6 +16,9 @@ import java.util.List;
 
 @Service
 public class QuestionService {
+    private final QuestionsDAO questionsDAO;
+    private final PSQLConnector connector;
+
     public QuestionService(QuestionsDAO questionsDAO, PSQLConnector connector) {
         this.questionsDAO = questionsDAO;
         this.connector = connector;
