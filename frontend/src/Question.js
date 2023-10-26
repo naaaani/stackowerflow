@@ -8,6 +8,7 @@ import Answer from './Answer';
 async function fetchAnswersForQuestion(id) {
   const res = await fetch(`/api/answers/by-question-id/${id}`);
   const answers = await res.json();
+  console.log(answers);
   return answers;
 }
 
@@ -35,6 +36,7 @@ async function addLikeToQuestion(id) {
   const res = await fetch(`/api/questions/${id}`, {
     method: "PUT",
   });
+  console.log("im fetching");
   return await res.json();
 }
 
@@ -53,13 +55,14 @@ function Question() {
   const { id } = useParams();
 
   async function postNewAnswer() {
-    const res = await fetch('/api/answers', {
+    const res = await fetch('/api/answers/', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newAnswer),
     });
+    console.log(newAnswer);
     return await res.json();
   }
 
