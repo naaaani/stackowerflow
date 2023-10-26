@@ -6,7 +6,7 @@ import Answer from './Answer';
 
 
 async function fetchAnswersForQuestion(id) {
-  const res = await fetch(`/api/questions-for-answer/${id}`);
+  const res = await fetch(`/api/answers/by-question-id/${id}`);
   const answers = await res.json();
   return answers;
 }
@@ -25,15 +25,16 @@ async function deleteQuestion(id) {
   return await res.json();
 }
 
+
 async function addLikeToAnswer(answerId) {
-  const res = await fetch(`/api/answers-like/${answerId}`, {
-    method: "POST",
+  const res = await fetch(`/api/answers/${answerId}`, {
+    method: "PUT",
   });
   return await res.json();
 }
 async function addLikeToQuestion(id) {
-  const res = await fetch(`/api/questions-like/${id}`, {
-    method: "POST",
+  const res = await fetch(`/api/questions/${id}`, {
+    method: "PUT",
   });
   return await res.json();
 }
@@ -45,10 +46,8 @@ function Question() {
   const [loading, setLoading] = useState(true);
   const [newAnswer, setNewAnswer] = useState(
     {
-      answer_id:-1,
+      question_id:-1,
       body: "",
-      number_of_likes: 0,
-      created_at: ""
     }
   );
   const navigate = useNavigate();
@@ -136,8 +135,9 @@ function Question() {
           onChange={
             (e) => {
               const updatedAnswer = { ...newAnswer };
-              updatedAnswer.id= id;
-              updatedAnswer.body = e.value;
+              updatedAnswer.question_id= id;
+              updatedAnswer.body = e.target.value;
+              console.log(e.target.value)
               setNewAnswer(updatedAnswer);
             }
           }></input>

@@ -19,7 +19,7 @@ const QuestionForm = ({ onSave, disabled, Question, onCancel }) => {
         <input type="hidden" name="_id" defaultValue={Question._id} />
       )}
 
-      <div className="control">
+      <div>
         <label htmlFor="title">Question title:</label>
         <input
           defaultValue={Question ? Question.title : null}
@@ -28,21 +28,12 @@ const QuestionForm = ({ onSave, disabled, Question, onCancel }) => {
         />
       </div>
 
-      <div className="control">
+      <div>
         <label htmlFor="details">Details:</label>
         <input
           defaultValue={Question ? Question.details : null}
           name="details"
           id="details"
-        />
-      </div>
-
-      <div className="control">
-        <label htmlFor="position">Position:</label>
-        <input
-          defaultValue={Question ? Question.position : null}
-          name="position"
-          id="position"
         />
       </div>
 

@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import QuestionForm from "./QuestionForm";
 
 
-const createQuestion = question => {
-  return fetch("/api/questions", {
+const createQuestion = async question => {
+  const res = await fetch("/api/questions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(question)
-  }).then(res => res.json());
+  });
+  console.log(question);
+  return await res.json();
 };
 
 function QuestionCreator(){
@@ -26,7 +29,7 @@ function QuestionCreator(){
   };
 
   return (
-    <questionForm
+    <QuestionForm
       onCancel={() => navigate("/")}
       disabled={loading}
       onSave={handleCreatequestion}
