@@ -93,10 +93,10 @@ public class QuestionsDaoJdbc implements QuestionsDAO {
         try (Connection conn = connector.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
 
-            preparedStatement.setString(1, newQuestion.title());
-            preparedStatement.setString(2, newQuestion.body());
-            preparedStatement.setInt(3, 0);
-            preparedStatement.setDate(4, Date.valueOf(LocalDate.now()));
+            preparedStatement.setString(2, newQuestion.title());
+            preparedStatement.setString(3, newQuestion.body());
+            preparedStatement.setInt(4, 0);
+            preparedStatement.setDate(5, Date.valueOf(LocalDate.now()));
 
             return preparedStatement.executeUpdate();
         } catch (SQLException e) {
