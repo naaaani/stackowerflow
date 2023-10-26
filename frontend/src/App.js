@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import "./App.css";
 
 async function fetchQuestions() {
   const res = await fetch("/api/questions/all");
@@ -33,8 +32,8 @@ function App() {
         return (
           <div key={question.id}>
             <h2>Title: {question.title}</h2>
-            <h2>Number of answers: {question.answer_count}</h2>
-            <h2>Date added: {question.created_at}</h2>
+            <h2>Number of answers: {question.answerCount}</h2>
+            <h2>Date added: {question.created}</h2>
             <Link to={`/question/${question.id}`}>
               <button>Show details</button>
             </Link>
@@ -44,7 +43,6 @@ function App() {
       ;
     </>
 
-    //question adder
   );
 }
 

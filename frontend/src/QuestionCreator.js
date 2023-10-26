@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import questionForm from "./QuestionForm";
+
 
 const createQuestion = question => {
   return fetch("/api/questions", {
@@ -12,7 +12,7 @@ const createQuestion = question => {
   }).then(res => res.json());
 };
 
-const questionCreator = () => {
+function QuestionCreator(){
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -34,4 +34,4 @@ const questionCreator = () => {
   );
 };
 
-export default questionCreator;
+export default QuestionCreator;

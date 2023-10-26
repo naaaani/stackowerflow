@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import App from './App';
 import Question from './Question';
 import QuestionCreator from "./QuestionCreator";
+import Layout from "./Layout";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
@@ -14,7 +15,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
