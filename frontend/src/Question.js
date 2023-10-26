@@ -14,6 +14,7 @@ async function fetchAnswersForQuestion(id) {
 async function fetchQuestion(id) {
   const res = await fetch(`/api/questions/${id}`);
   const question = await res.json();
+  console.log(question)
   return question;
 }
 
@@ -97,8 +98,8 @@ function Question() {
         {question.title}
       </div>
       <h2>{question.body}</h2>
-      <h2>date added: {question.date_added}</h2>
-      <h2>Number of likes: {question.number_of_likes}</h2>
+      <h2>date added: {question.created}</h2>
+      <h2>Number of likes: {question.likes}</h2>
       <button
         onClick={async () => {
           await addLikeToQuestion(id);

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 async function fetchQuestions() {
   const res = await fetch("/api/questions/all");
-console.log("im fetching")
   const questions = await res.json();
   return questions;
 }
