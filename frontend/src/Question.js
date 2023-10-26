@@ -14,7 +14,6 @@ async function fetchAnswersForQuestion(id) {
 async function fetchQuestion(id) {
   const res = await fetch(`/api/questions/${id}`);
   const question = await res.json();
-  console.log(question)
   return question;
 }
 
