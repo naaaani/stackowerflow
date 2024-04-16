@@ -1,24 +1,169 @@
-# Stackoverflow TW Project
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a name="readme-top"></a>
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-- Main page listing all questions with details, date and answer count
-- Feature to sort questions on Main page by alphabet, date or answer count
-- Detail page of a question shows who asked it and lists all answers with date and users
-- Feature to add new question (redirects to question detail page after save)
-- Feature to add new answer (location: question detail page)
-- Feature to delete question (later extend so only the owner can delete it)
-- Feature to delete answer (location: question delete page) (later extend so only the owner can delete it)
-- Feature to Register new user
-- Feature to Login with user and store session (who is currently logged in is always visible on frontend)
-- Feature to Logout user
-- Users list page: shows username, registration date, number of questions, number of answers
-- Feature to mark the accepted answer for the user's own question
-- Write tests for the service layer
 
-## General requirements: 
-- Create an SQL database to store your data
-- Stick to Model View Controller layers (Frontend doesn't do calculations, only displays the data, SQL handles the data manipulation)
-- Do the base data features first and add user management later, extend already existing ones if necessary 
-- Aim for the code to keep SOLID, OOP and Clean code principles
-- Focus on the Java & SQL parts and do minimal frontend as it is not the goal of this project
-- Vanilla Javascript and HTML is suggested for frontend, nothing more complicated (like frameworks) is necessary 
-- If you need new API endpoints ask mentors to create them for you
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+<h3 align="center">Stackoverflow</h3>
+  <p align="center">
+    Question sharing site built with Spring Boot.
+    <br />
+    <a href="https://github.com/naaaani/stackowerflow"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+  </p>
+</div>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+In this learning project we built an app similar to Stackoverflow. It's purpose was to get us acquainted with the Spring Boot framework.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+### Built With
+
+* [![React][React.js]][React-url]
+* [![Spring][Spring.js]][Spring-url]
+* [![PostgreSQL][PostgreSQL.js]][PostgreSQL-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+* JDK
+    - <a href="https://www.oracle.com/java/technologies/downloads/">Download latest JDK version</a>
+    - Install it
+* maven
+    - <a href="https://maven.apache.org/download.cgi">Download Maven</a>
+    - Install it
+* PSQL
+    - <a href="https://www.postgresql.org/download/">Download PSQL</a>
+    - Install it
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/naaaani/stackowerflow.git
+   ```
+2. Install NPM packages in frontend directory
+   ```sh
+   npm install
+   ```
+3. Set your PSQL connection string in `application.properties`.
+   ```
+   connectionstring=yourstring;
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+You can add questions, answer them and vote on them. You can also delete questions.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+## Contact
+
+Zalka Nándor - nandi.zalka@gmail.com
+
+Project Link: [https://github.com/naaaani/stackowerflow](https://github.com/naaaani/stackowerflow)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/naaaani/stackowerflow.svg?style=for-the-badge
+[contributors-url]: https://github.com/naaaani/stackowerflow/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/naaaani/stackowerflow.svg?style=for-the-badge
+[forks-url]: https://github.com/naaaani/stackowerflow/network/members
+[stars-shield]: https://img.shields.io/github/stars/naaaani/stackowerflow.svg?style=for-the-badge
+[stars-url]: https://github.com/naaaani/stackowerflow/stargazers
+[issues-shield]: https://img.shields.io/github/issues/naaaani/stackowerflow.svg?style=for-the-badge
+[issues-url]: https://github.com/naaaani/stackowerflow/issues
+[license-shield]: https://img.shields.io/github/license/naaaani/stackowerflow.svg?style=for-the-badge
+[license-url]: https://github.com/naaaani/stackowerflow/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/linkedin_username
+[product-screenshot]: images/screenshot.png
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Spring.js]: https://img.shields.io/badge/Spring%20Boot-grey?style=for-the-badge&logo=Spring%20Boot&color=grey
+[Spring-url]: https://spring.io/projects/spring-boot
+[PostgreSQL.js]: https://img.shields.io/badge/PostgreSQL-grey?style=for-the-badge&logo=PostgreSQL&color=grey&logoColor=61DAFB
+[PostgreSQL-url]: https://www.postgresql.org/docs/current/app-psql.html
