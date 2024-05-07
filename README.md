@@ -22,8 +22,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -34,7 +32,6 @@
   <p align="center">
     Question sharing site built with Spring Boot.
     <br />
-    <a href="https://github.com/naaaani/stackowerflow"><strong>Explore the docs »</strong></a>
     <br />
     <br />
   </p>
@@ -136,11 +133,6 @@ You can add questions, answer them and vote on them. You can also delete questio
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTACT -->
-## Contact
-
-Zalka Nándor - nandi.zalka@gmail.com
 
 Project Link: [https://github.com/naaaani/stackowerflow](https://github.com/naaaani/stackowerflow)
 
