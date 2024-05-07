@@ -130,7 +130,6 @@ To get a local copy up and running follow these simple steps.
 
 You can add questions, answer them and vote on them. You can also delete questions.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
